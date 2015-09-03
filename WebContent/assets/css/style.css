@@ -1,0 +1,144 @@
+body{
+	background-color: 	#373739;
+	text-align: 		center;
+	margin: 			0;
+	font-size: 			1.3em;
+	font-family: 		sans-serif;
+}
+
+div#container{
+	width: 	800px;
+	height: 100%;
+	margin: 0 auto;
+}
+
+div#header{
+	background-color: #FFF;
+}
+
+div#content, div#footer{
+	padding: 20px;
+}
+
+div#content{
+	background-color: 	#003e71;
+	border-top: 		40px #155e95 solid;
+	border-bottom: 		40px #155e95 solid;
+	color: 				#FFF;
+}
+
+div#content table{
+	text-align: left;
+	width: 		100%;
+}
+
+div#content td{
+	padding: 				10px;
+}
+
+div#content input, div#content select{
+	padding: 			10px;
+	font-size: 			0.7em;
+	background-color: 	transparent;
+	border: 			none;
+	border-bottom: 		2px #b1adb3 solid;
+	-webkit-appearance: none;
+	-moz-appearance:    none;
+	appearance:         none;
+	border-radius: 		0;
+	color: 				#FFF;
+}
+
+div#content select option{
+	color: #373739;
+}
+
+div#content input:focus, div#content select:focus{
+	border-bottom-color: 	#fee277;
+	outline: 				0;
+}
+
+div#content input{
+	width: 		calc(100% - 20px);
+	display: 	inline-block;
+}
+
+div#content select{
+	width: 100%;
+}
+
+.half-input-divide{
+	min-width: 	8%;
+	max-width: 	8%;
+	display: 	inline-block;
+}
+
+div#content input.half-input{
+	width: calc(44% - 10px);
+}
+
+div#footer{
+	background-color: 	#FFF;
+	text-align: 		right;
+}
+
+div#footer input.submit{
+	background-color: 	#ddb518;
+	background-image:	url('../img/check.png');
+	background-repeat: 	no-repeat;
+	background-size: 	0px;
+	background-position: left center;
+	color: 				#FFF;
+	font-size: 			0.8em;
+	border: 			none;
+	padding: 			10px;
+	transition: 		0.25s;
+	min-height: 40px;
+}
+
+div#footer input.submit:hover{
+	background-color: 		#f4d445;
+	background-size: 		20px;
+	background-position: 	10px center;
+	padding-left: 			40px;
+}
+
+img{
+	max-width: 100%;
+}
+
+/* For medium-sized screens */
+
+@media only screen and (max-width : 768px) {
+
+	div#container{
+		width: 	100%;
+		margin: 0;
+	}
+
+	.half-input-divide{
+		min-width: 	auto;
+		max-width: 	auto;
+		display: 	inline;
+	}
+
+	div#content input.half-input{
+		width: calc(100% - 40px);
+	}
+
+	div#content input.half-input:nth-of-type(2){
+		width: calc(100% - 20px);
+	}
+
+}
+
+/* For small-sized screens */
+
+@media only screen and (max-width : 600px) {
+
+	div#footer button{
+		width: 100%;
+	}
+
+}
+
