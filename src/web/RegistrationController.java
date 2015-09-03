@@ -47,4 +47,12 @@ public class RegistrationController {
 		rs.register(r);
 		request.getRequestDispatcher("WEB-INF/view/form.jsp").forward(request, response);;
 	}
+	
+	@RequestMapping("/ViewRegistrants")
+	public void viewRegistrants(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		Collection<Registrant> registrants = rs.getRegistrants();
+		request.getSession().setAttribute("registrants", registrants);
+		request.getSession().setAttribute("totalRevenue", rs.calculateTotalRevenue());
+		request.getRequestDispatcher("WEB-INF/view/view_registrants.jsp").forward(request, response);
+	}
 }

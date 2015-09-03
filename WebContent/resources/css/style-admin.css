@@ -1,0 +1,20 @@
+.main-container{
+    height: inherit;
+    width: inherit;
+    padding: 2% 7% 2% 7%;
+}
+
+.totals {
+    margin: auto;
+    max-width: 960px;
+    padding-bottom: 15px;
+}
+
+.totals h5{
+    font-weight: bold;
+}
+.amount {
+    text-align: right;
+}
+
+
