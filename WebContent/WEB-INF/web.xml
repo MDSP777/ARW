@@ -1,29 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" id="WebApp_ID" version="3.0">
-<!--   <servlet>      -->
-<!-- 	<servlet-name>RegisterMember</servlet-name> -->
-<!-- 	<servlet-class> -->
-<!-- 		servlets.RegisterMember -->
-<!-- 	</servlet-class> -->
-<!--   </servlet> -->
 
-<!--   <servlet-mapping> -->
-<!-- 	<servlet-name>RegisterMember</servlet-name> -->
-<!-- 	<url-pattern>/RegisterMember</url-pattern> -->
-<!--   </servlet-mapping> -->
-  
-<!--   <servlet>      -->
-<!-- 	<servlet-name>RegisterForm</servlet-name> -->
-<!-- 	<servlet-class> -->
-<!-- 		servlets.RegisterForm -->
-<!-- 	</servlet-class> -->
-<!--   </servlet> -->
-
-<!--   <servlet-mapping> -->
-<!-- 	<servlet-name>RegisterForm</servlet-name> -->
-<!-- 	<url-pattern>/RegisterForm</url-pattern> -->
-<!--   </servlet-mapping> -->
-  
   <listener> 
       <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class> 
   </listener> 
@@ -48,7 +25,4 @@
       <url-pattern>/</url-pattern>
   </servlet-mapping>
     
-<!--   <welcome-file-list> -->
-<!--     <welcome-file>form.jsp</welcome-file> -->
-<!--   </welcome-file-list> -->
 </web-app>
