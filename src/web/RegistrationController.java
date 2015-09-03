@@ -1,25 +1,38 @@
-package servlets;
+package web;
 
 import java.io.IOException;
+import java.util.Collection;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import model.Registrant;
+import model.RegistrationType;
+
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.HttpRequestHandler;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 import service.RegTypeService;
 import service.RegistrationService;
-import model.Registrant;
 
-public class RegisterMember implements HttpRequestHandler {
+@Controller
+public class RegistrationController {
 	@Autowired
 	private RegistrationService rs;
 	@Autowired
 	private RegTypeService rts;
 	
-	public void handleRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	@RequestMapping("/RegisterForm")
+	public void redirectToForm(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		Collection<RegistrationType> regTypes = rts.findAllRegTypes();
+		request.getSession().setAttribute("regTypes", regTypes);
+		request.getRequestDispatcher("WEB-INF/view/form.jsp").forward(request, response);
+	}
+	
+	@RequestMapping("/RegisterMember")
+	public void registerMember(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String surname = request.getParameter("surname");
 		String firstName = request.getParameter("firstName");
 		String middleName = request.getParameter("middleName");
@@ -32,8 +45,6 @@ public class RegisterMember implements HttpRequestHandler {
 		Registrant r = new Registrant(surname, firstName, middleName,
 				idNo, course, contactNo, email, rts.findBy(membershipType), receiptNo);
 		rs.register(r);
-		response.sendRedirect("form.jsp");
+		request.getRequestDispatcher("WEB-INF/view/form.jsp").forward(request, response);;
 	}
-
-
 }

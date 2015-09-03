@@ -11,13 +11,10 @@ http://www.springframework.org/schema/context
 http://www.springframework.org/schema/context/spring-context-3.0.xsd">
  	
 
-    <!-- Scans the classpath for annotated components that will be auto-registered 
-        as Spring beans. For example @Controller and @Service. Make sure to set the 
-        correct base-package 
-    <context:component-scan base-package="servlets" />
-    <context:annotation-config/>-->
+    <context:component-scan base-package="service, servlets" />
+    <context:annotation-config/>
  
-    <bean id="dataSource" class="org.apache.commons.dbcp2.BasicDataSource"
+    <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource"
         p:driverClassName="com.mysql.jdbc.Driver" p:url="jdbc:mysql://localhost:3306/arw"
         p:username="root" p:password="IforgoT197!!">
     </bean>
@@ -25,6 +22,7 @@ http://www.springframework.org/schema/context/spring-context-3.0.xsd">
     <bean
         class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean"
         id="entityManagerFactory">
+        <property name="persistenceUnitName" value="arw" />
         <property name="dataSource" ref="dataSource" />
     </bean>
  
@@ -32,7 +30,8 @@ http://www.springframework.org/schema/context/spring-context-3.0.xsd">
          <property name="entityManagerFactory" ref="entityManagerFactory" />  
  	</bean>
  	
- 	<bean id="regService" class="service.RegistrationService" parent="jpaService" />
+<!--  	<bean id="regService" class="service.RegistrationService" parent="jpaService" /> -->
+<!--  	<bean id="regTypeService" class="service.RegTypeService" parent="jpaService" /> -->
  
     <bean class="org.springframework.orm.jpa.JpaTransactionManager"
         id="transactionManager">
