@@ -9,7 +9,7 @@
     
     </head>
     <body>
-        <nav class="navbar navbar-default">
+        <nav class="navbar navbar-default" style = "background: #001e60;">
           <div class="container-fluid">
             <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header">
@@ -19,15 +19,18 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
               </button>
-              <img class="navbar-brand" src= "assets/logo.jpg">
+                <div class="navbar-brand" rel="home" title="Admin Page">
+                    <span><img style="max-width:65px; margin-top: -15px; margin-left: -15px;" src="assets/logo.png"></span>
+                    <span style="color:white">Administrator Page</span>
+                </div>
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-              <ul class="nav navbar-nav navbar-right navbar-buttons">
-                <li><a href="index.html">List of Members<span class="sr-only">(current)</span></a></li>
-                <li><a href="#">Revenue</a></li>
-                <li><a href="settings.html">Settings</a></li>
+              <ul class="nav navbar-nav navbar-right">
+                <li><a href="index.html" class="navbar-tabs" style="color:white">List of Members<span class="sr-only">(current)</span></a></li>
+                <li><a href="#" class="navbar-tabs" style="color:white">Revenue</a></li>
+                <li><a href="settings.html" class="navbar-tabs active" style="color:white; color:#ffb81c">Settings</a></li>
               </ul>
             </div><!-- /.navbar-collapse -->
           </div><!-- /.container-fluid -->
@@ -39,58 +42,67 @@
                 <div class = "panel-body">
                   <!-- Nav tabs -->
                   <ul class="nav nav-tabs" role="tablist">
-                    <li role="presentation" class="active"><a href="#color-scheme" aria-controls="color-scheme" role="tab" data-toggle="tab">Color Scheme</a></li>
-                    <li role="presentation"><a href="#registration" aria-controls="registration" role="tab" data-toggle="tab">Registration Details</a></li>
+                    <li role="presentation" class="active">
+                        <a href="#color-scheme" aria-controls="color-scheme" role="tab" data-toggle="tab">Color Scheme</a>
+                    </li>
+                    <li role="presentation">
+                        <a href="#registration" aria-controls="registration" role="tab" data-toggle="tab">Registration Details</a>
+                    </li>
                   </ul>
 
                   <!-- Tab panes -->
                   <div class="tab-content">
                     <div role="tabpanel" class="tab-pane active main-container" id="color-scheme">
-                        <form class = "register-form form-horizontal" action="" method="post" role="form">
-
-                            <div class="form-group">
-                                  <label>Background:</label>
-                                  <input type="text" class="form-control" name="bg" id="bg" placeholder = "#FFFFFF">
-                            </div>
-                            <div class="form-group">
-                                  <label>Foreground:</label>
-                                  <input type="text" class="form-control" name="fg" id="fg" placeholder = "#FFFFFF">
-                            </div>
-                            <div class="form-group">
-                                   <label>Other Elements:</label>
-                                   <input type="text" class="form-control" name="other" id="other" placeholder = "#FFFFFF">
-                            </div>
-                            <div class = "form-group" style = "float:right;">
-                                   <button type="submit" class="btn btn-primary">Save</button>
-                            </div>
-                        </form>
+                        <div class="form-group">
+                              <label>Background:</label>
+                              <input type="text" class="form-control" name="bg" id="bg" placeholder = "#FFFFFF">
+                        </div>
+                        <div class="form-group">
+                              <label>Foreground:</label>
+                              <input type="text" class="form-control" name="fg" id="fg" placeholder = "#FFFFFF">
+                        </div>
+                        <div class="form-group">
+                               <label>Other Elements:</label>
+                               <input type="text" class="form-control" name="other" id="other" placeholder = "#FFFFFF">
+                        </div>
+                        <div class = "form-group" style = "float:right;">
+                            <form class = "register-form form-horizontal" action="" method="post" role="form">
+                               <button type="submit" class="btn btn-primary">Save</button>
+                            </form>
+                        </div>
                     </div>
                     <div role="tabpanel" class="tab-pane main-container" id="registration">
-                         
-
-                            <div class = "table-responsive">
-                                <table class="table table-hover table-condensed">
-                                    <thead>
-                                        <tr>
-                                            <th>Type Name</th>
-                                            <th>Registration Fee</th>
-                                            <th class = "text-right">
-                                                <button data-toggle="modal" data-target="#addTypeModal"><span class="glyphicon glyphicon-plus"></span></button>
-                                            </th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td>Regular</td>
-                                            <td >250.00</td>
-                                            <td class = "text-right">
-                                                <button><span class="glyphicon glyphicon-pencil"></span></button>
-                                                <button><span class="glyphicon glyphicon-trash"></span></button>
-                                            </td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
+                        <div class = "table-responsive">
+                            <table class="table table-hover table-condensed">
+                                <thead>
+                                    <tr>
+                                        <th>Type Name</th>
+                                        <th>Registration Fee</th>
+                                        <th class = "text-right">
+                                            <button data-toggle="modal" data-target="#addTypeModal">
+                                                <span class="glyphicon glyphicon-plus"></span>
+                                            </button>
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Regular</td>
+                                        <td >250.00</td>
+                                        <td class = "text-right">
+                                            <form action="" method="Post">
+                                                <button style = "float:right;" type="submit">
+                                                    <span class="glyphicon glyphicon-trash"></span>
+                                                </button>
+                                            </form>
+                                            <button style = "float:right;" data-toggle="modal" data-target="#editTypeModal">
+                                                <span class="glyphicon glyphicon-pencil"></span>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
 
                   </div>
@@ -99,7 +111,7 @@
             </div>
             
             
-            <!-- Modal -->
+            <!-- Add Modal -->
             <div id="addTypeModal" class="modal fade" role="dialog">
               <div class="modal-dialog">
 
@@ -112,21 +124,55 @@
                   <div class="modal-body">
                     <div class="form-group">
                                   <label>Type Name:</label>
-                                  <input type="text" class="form-control" name="bg" id="bg">
+                                  <input type="text" class="form-control" name="addType" id="addType">
                     </div>
                     <div class="form-group">
                                   <label>Registration Fee:</label>
-                                  <input type="text" class="form-control" name="bg" id="bg">
+                                  <input type="text" class="form-control" name="addFee" id="addFee">
                     </div>
                   </div>
                   <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Save</button>
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                      <form action="" method="post">
+                          <input type="submit" class = "btn btn-default" value = "Save">
+                          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                      </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- End Add Modal-->
+             <!-- Edit Modal -->
+            <div id="editTypeModal" class="modal fade" role="dialog">
+              <div class="modal-dialog">
+
+                <!-- Modal content-->
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Edit Membership Type</h4>
+                  </div>
+                  <div class="modal-body">
+                    <div class="form-group">
+                            <label>Type Name: </label>
+                            <input type="text" class="form-control" name="editType" id="editType" value = "Regular">
+                                  
+                    </div>
+                    <div class="form-group">
+                            <label>Registration Fee: </label>
+                            <input type="text" class="form-control" name="editFee" id="editFee" value = "250.00">
+                    </div>
+                  </div>
+                  <div class="modal-footer">
+                    <form action="" method="post">
+                          <input type="submit" class = "btn btn-default" value = "Save">
+                          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    </form>
                   </div>
                 </div>
 
               </div>
             </div>
+            <!--End edit Modal-->
         </section>
         
         
@@ -140,6 +186,18 @@
               e.preventDefault()
               $(this).tab('show')
             })
+            
+            
+            $(function() {
+                $(".navbar-tabs").hover(
+                function() {
+                    $(this).css('color', '#ffb81c')
+                }, function() {
+                    if(!$(this).hasClass("active")) {
+                        $(this).css('color', 'white')
+                    }                    
+                });
+            });
         </script>
     </body>
     
