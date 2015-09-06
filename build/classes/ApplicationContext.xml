@@ -30,13 +30,13 @@ http://www.springframework.org/schema/context/spring-context-3.0.xsd">
          <property name="entityManagerFactory" ref="entityManagerFactory" />  
  	</bean>
  	
-    <bean class="org.springframework.orm.jpa.JpaTransactionManager"
-        id="transactionManager">
-        <property name="entityManagerFactory" ref="entityManagerFactory" />
-    </bean>
+<!--     <bean class="org.springframework.orm.jpa.JpaTransactionManager" -->
+<!--         id="transactionManager"> -->
+<!--         <property name="entityManagerFactory" ref="entityManagerFactory" /> -->
+<!--     </bean> -->
  	
-    <tx:annotation-driven mode="aspectj"
-        transaction-manager="transactionManager" />
+<!--     <tx:annotation-driven mode="aspectj" -->
+<!--         transaction-manager="transactionManager" /> -->
  
     <context:spring-configured />
     <context:annotation-config />

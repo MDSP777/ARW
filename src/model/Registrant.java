@@ -3,6 +3,7 @@ package model;
 import java.util.Calendar;
 import java.util.Date;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -136,6 +137,19 @@ public class Registrant {
 				+ ", email=" + email + ", membershipType=" + membershipType
 				+ ", receiptNo=" + receiptNo + ", dateRegistered="
 				+ dateRegistered + "]";
+	}
+
+	public String getMembershipTypeName() {
+		return membershipType.getTypeName();
+	}
+
+	public boolean hasIdenticalNameWith(Registrant other) {
+		if(firstName.equals(other.firstName) 
+			&& surname.equals(other.surname)
+			&& middleName.equals(other.middleName)){
+			return true;
+		}
+		return false;
 	}
 	
 		

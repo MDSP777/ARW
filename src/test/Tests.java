@@ -1,7 +1,7 @@
 package test;
 
 import static org.junit.Assert.*;
-
+import model.Registrant;
 import model.RegistrationType;
 
 import org.junit.Test;
@@ -21,14 +21,13 @@ public class Tests {
 	@Autowired
 	private RegTypeService rts;
 	
-//	@Test
-//	public void testAddAndRetrieve(){
-//		assertEquals(0, rs.getRegistrants().size());
-//		Registrant r = new Registrant("San Pedro", "Marc", "", "11336617", 
-//				"BS CS-ST", "09989793916", "mdsp777@outlook.com", new RegistrationType("New", 250), "1234");
-//		rs.register(r);
-//		assertEquals(1, rs.getRegistrants().size());
-//	}
+	@Test
+	public void testAddAndRetrieve(){
+		Registrant r = new Registrant("San Pedro", "Marc", "", "11336617", 
+				"BS CS-ST", "09989793916", "mdsp777@outlook.com", rts.findBy("New"), "1234");
+		rs.register(r);
+		assertTrue(true);
+	}
 	
 	@Test
 	public void testRetrieveRegType(){

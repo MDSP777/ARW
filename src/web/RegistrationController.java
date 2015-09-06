@@ -11,6 +11,7 @@ import model.Registrant;
 import model.RegistrationType;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataAccessException;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -42,10 +43,16 @@ public class RegistrationController {
 		String email = request.getParameter("email");
 		String membershipType = request.getParameter("membershipType");
 		String receiptNo = request.getParameter("receiptNo");
+		String resultMsg = "Registration successful!";
 		Registrant r = new Registrant(surname, firstName, middleName,
 				idNo, course, contactNo, email, rts.findBy(membershipType), receiptNo);
-		rs.register(r);
-		request.getRequestDispatcher("WEB-INF/view/form.jsp").forward(request, response);;
+		try{
+			rs.register(r);
+		} catch(DataAccessException e){
+			resultMsg = "Registration failed, an identical name already exists.";
+		}
+		request.getSession().setAttribute("resultMsg", resultMsg);
+		response.sendRedirect("RegisterForm");
 	}
 	
 	@RequestMapping("/ViewRegistrants")

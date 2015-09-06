@@ -13,7 +13,25 @@
 
 		<link rel="stylesheet" href="<c:url value="/resources/css/style.css" />">
 	</head>
-
+	
+	<script type="text/javascript">
+		function validateForm(){
+			
+			if(document.getElementById("receiptNo").value.length==0 || 
+			   document.getElementById("surname").value.length==0 || 
+			   document.getElementById("firstName").value.length==0 || 
+			   document.getElementById("idNo").value.length==0 || 
+			   document.getElementById("course").value.length==0 || 
+			   document.getElementById("contactNo").value.length==0 || 
+			   document.getElementById("email").value.length==0 || 
+			   document.getElementById("membershipType").value.length==0){
+				alert("Error submitting. Please fill up all required fields.");
+				return false;
+			}
+			return true;
+		}
+	</script>
+	
 	<body>
 		<div id="container">
 
@@ -21,38 +39,44 @@
 				<img src="<c:url value="/resources/img/logo.jpg" />"/>
 			</div>
 
-			<form action="RegisterMember" method="post">
+			<form action="RegisterMember" method="post" onsubmit="return validateForm()">
 
 				<div id="content">
 					<table>
 						<tr>
 							<td>Receipt Number</td>
-							<td><input name="receiptNo"></td>
+							<td><input name="receiptNo" id="receiptNo"></td>
 						</tr>
 						<tr>
 							<td>Name</td>
-							<td><input placeholder="Surname" class="half-input" name="surname"><div class="half-input-divide">, </div><input placeholder="First Name" class="half-input" name="firstName"></td>
+							<td>
+								<input placeholder="Surname" class="half-input" name="surname" id="surname">
+								<div class="half-input-divide">, </div>
+								<input placeholder="First Name" class="half-input" name="firstName" id="firstName">
+								<div class="half-input-divide"></div>
+								<input placeholder="Middle Name" class="half-input" name="middleName" id="middleName">
+							</td>
 						</tr>
 						<tr>
 							<td>ID Number</td>
-							<td><input name="idNo"></td>
+							<td><input name="idNo" id="idNo"></td>
 						</tr>
 						<tr>
 							<td>Course</td>
-							<td><input name="course"></td>
+							<td><input name="course" id="course"></td>
 						</tr>
 						<tr>
 							<td>Contact Number</td>
-							<td><input name="contactNo"></td>
+							<td><input name="contactNo" id="contactNo"></td>
 						</tr>
 						<tr>
 							<td>Email Address</td>
-							<td><input name="email"></td>
+							<td><input name="email" id="email"></td>
 						</tr>
 						<tr>
 							<td>Membership Type</td>
 							<td>
-								<select name="membershipType">
+								<select name="membershipType" id="membershipType">
 									<c:forEach var="regType" items="${regTypes }">
 										<option>${regType.typeName }</option>
 									</c:forEach>
@@ -69,6 +93,13 @@
 			</form>
 
 		</div>
+		
+		<c:if test="${resultMsg != null }">
+			<script>
+			var msg = "${resultMsg }";
+			alert(msg);
+			</script>
+		</c:if>
 	</body>
 
 </html>

@@ -5,9 +5,9 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import javax.persistence.Persistence;
 import javax.persistence.TypedQuery;
 
+import org.springframework.dao.DataAccessException;
 import org.springframework.stereotype.Repository;
 
 import model.Registrant;
@@ -16,16 +16,27 @@ import model.RegistrationType;
 @Repository
 public class RegistrationService extends JpaService {
 	
-	public RegistrationService(){
-		entityManagerFactory = Persistence.createEntityManagerFactory("arw");
-	}
-	
 	public void register(Registrant r){
 		openTransaction();
 		try{
+			validate(r);
 			entityManager.persist(r);
 		} finally {
 			closeTransaction();
+		}
+	}
+	
+	private void validate(Registrant r){
+		TypedQuery<Registrant> q = entityManager.createQuery(
+			"Select r from Registrant r order by r.surname, r.firstName, r.middleName", Registrant.class);
+		List<Registrant> registrants = q.getResultList();
+		for(Registrant entry: registrants){
+			if(r.hasIdenticalNameWith(entry)){
+				throw new DataAccessException
+				("Error during registration, a registrant with the same name already exists.") {
+					private static final long serialVersionUID = 1L;
+				};
+			}
 		}
 	}
 	
@@ -33,7 +44,7 @@ public class RegistrationService extends JpaService {
 		openTransaction();
 		try{
 			TypedQuery<Registrant> q = entityManager.createQuery(
-					"Select r from Registrant r", Registrant.class);
+					"Select r from Registrant r order by r.surname, r.firstName, r.middleName", Registrant.class);
 			List<Registrant> resultList = q.getResultList();
 			return resultList;
 		} finally {

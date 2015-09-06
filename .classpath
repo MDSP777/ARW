@@ -23,5 +23,6 @@
 	<classpathentry kind="lib" path="C:/Users/MarcDominic/Documents/External JARs/standard.jar"/>
 	<classpathentry kind="lib" path="C:/Users/MarcDominic/Documents/External JARs/commons-logging-1.2/commons-logging-1.2.jar"/>
 	<classpathentry kind="lib" path="C:/Users/MarcDominic/Documents/External JARs/mysql-connector-java-5.1.34-bin.jar"/>
+	<classpathentry kind="lib" path="C:/Users/MarcDominic/Documents/External JARs/poi-3.12-20150511.jar"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>

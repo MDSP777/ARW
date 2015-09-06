@@ -11,16 +11,17 @@
 
 
     <mvc:annotation-driven />
-
-<!-- 	<bean id="multipartResolver" -->
-<!--         class="org.springframework.web.multipart.commons.CommonsMultipartResolver"> -->
-<!--         max upload size in bytes -->
-<!--         <property name="maxUploadSize" value="20971520" /> 20MB -->
-         
-<!--         max size of file in memory (in bytes) -->
-<!--         <property name="maxInMemorySize" value="1048576" /> 1MB -->
- 
-<!--     </bean> -->
+	
+	<bean class="org.springframework.web.servlet.mvc.support.ControllerClassNameHandlerMapping" />
+    
+    <bean class="web.RegistrantReportController" />
+    
+<!--     <bean class="org.springframework.web.servlet.view.XmlViewResolver"> -->
+<!-- 	   <property name="location"> -->
+<!-- 	       <value>/WEB-INF/spring-excel-views.xml</value> -->
+<!-- 	   </property> -->
+<!-- 	   <property name="order" value="0" /> -->
+<!-- 	</bean> -->
 	
 	<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
         <property name="prefix" value="/WEB-INF/view/"/>
