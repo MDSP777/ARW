@@ -17,7 +17,7 @@ import service.RegistrationService;
 @ContextConfiguration(locations = { "/ApplicationContext.xml" })
 public class InitRegistrants {
 	@Autowired
-	private RegistrationService rs;
+	private RegTypeService rt;
 	
 	@Test
 	public void initReg(){
@@ -26,8 +26,12 @@ public class InitRegistrants {
 		RegistrationType o = new RegistrationType("Old", 220);
 		RegistrationType og = new RegistrationType("Old (Group)", 200);
 		RegistrationType h = new RegistrationType("Honorary", 50);
-		
-		Registrant avril = new Registrant("Fernandez", "Avril Ranezca", "Lim", "113something", 
+		rt.add(n);
+		rt.add(ng);
+		rt.add(o);
+		rt.add(og);
+		rt.add(h);
+		/*Registrant avril = new Registrant("Fernandez", "Avril Ranezca", "Lim", "113something", 
 				"BS CS-ST", "09something", "avril_fernandez@dlsu.edu.ph", n, "1");
 		Registrant gio = new Registrant("Velez", "Gio Anton", "Tan", "113something", 
 				"BS CS-ST", "09something", "gio_velez@dlsu.edu.ph", ng, "2");
@@ -41,7 +45,7 @@ public class InitRegistrants {
 		rs.register(gio);
 		rs.register(marc);
 		rs.register(joswin);
-		rs.register(clarisse);
+		rs.register(clarisse);*/
 		assertTrue(true);
 	}
 }
